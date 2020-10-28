@@ -11,8 +11,7 @@ window.onload = () => {
     initMap()
         .then(() => {
             gMap.addListener("click", (event) => {
-                mapService.getSelectedLocation(gMap,event);
-                document.querySelector('.input-name-container').style.display = 'flex';
+                mapService.getSelectedLocation(gMap, event, renderLocations);
             });
         })
         .then(() => {
@@ -46,6 +45,10 @@ export function initMap(lat = 32.0749831, lng = 34.9120554) {
             })
             console.log('Map!', gMap);
         })
+}
+
+function renderLocations(locs) {
+    console.log('ok', locs)
 }
 
 function addMarker(loc) {
