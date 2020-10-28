@@ -3,9 +3,12 @@ export const mapService = {
     getSelectedLocation,
     getCurrLocation,
 }
-var locs = [{ lat: 11.22, lng: 22.11 }]
 
+// import { storageServices } from './services/storage-service.js' // not working!
+
+var locs = [{ lat: 11.22, lng: 22.11 }]
 let gLocations = [];
+const LOCATIONS_KEY = 'LOCATIONS_DB'
 
 function getLocs() {
     return new Promise((resolve, reject) => {
@@ -15,7 +18,7 @@ function getLocs() {
     });
 }
 
-function createLocation(name, lat, lng, weather, updatedAt) {
+function createLocation(lat, lng, cb, name) {
     let location = {
         id: getLocationId(lat, lng),
         name,
@@ -24,11 +27,12 @@ function createLocation(name, lat, lng, weather, updatedAt) {
         // weather,
         createdAt: new Date().toUTCString()
     }
-    console.log(location);
     gLocations.push(location);
+    saveToStorage(LOCATIONS_KEY, gLocations);
+    cb();
 }
 
-function getSelectedLocation(map,ev) {
+function getSelectedLocation(map, ev, cb) {
     const myLatlng = { lat: 32.0749831, lng: 34.9120554 };
     let infoWindow = new google.maps.InfoWindow({
         content: "Click the map to get Lat/Lng!",
@@ -50,8 +54,9 @@ function getSelectedLocation(map,ev) {
         lng: ev.latLng.lng()
     }
     new google.maps.Marker({ position: myLatLng, map });
-    createLocation(myLatLng.lat, myLatLng.lng)
+    createLocation(myLatLng.lat, myLatLng.lng, cb)
 }
+
 function getCurrLocation(map) {
     navigator.geolocation.getCurrentPosition((position) => {
         var currLocation = {
@@ -64,6 +69,16 @@ function getCurrLocation(map) {
 }
 
 function getLocationId(lat, lng) {
-    return Math.floor(Math.random() * Math.floor(100)) + '-' + Math.floor(lat) + Math.floor(lng);
+    return Math.floor(Math.random() * Math.floor(100)) + '-' + (Math.floor(lat) + Math.floor(lng)) + '-' + Math.floor(Math.random() * Math.floor(100));
 }
 
+
+function saveToStorage(key, val) {
+    var str = JSON.stringify(val);
+    localStorage.setItem(key, str);
+}
+
+function loadFromStorage(key) {
+    var str = localStorage.getItem(key)
+    return JSON.parse(str);
+}
