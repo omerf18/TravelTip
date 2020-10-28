@@ -18,7 +18,7 @@
             <section class="enter-location flex justify-center">
                 <input type="text" placeholder="Enter location">
                 <button class="go">GO</button>
-                <button class="my-location" onclick="onGetCurrLocation()">MY LOCATION</button>
+                <button class="my-location">MY LOCATION</button>
             </section>
         </header>
 
@@ -37,18 +37,21 @@
             </section>
         </content>
 
-
-
-
-
-
-
-        <button class="btn">Click Me</button>
-
     </div>
 
 
-    
+
+    <div class="input-name-container">
+        <form class="input-form">
+            <h2 class="input-title">Enter location name</h2>
+            <input type="text" class="input-name" placeholder="Enter name:">
+            <div class="btn-container flex">
+                <button class="input-btn-save" type="submit">Save!</button>
+                <button class="input-btn-cancel">Cancel</button>
+            </div>
+        </form>
+    </div>
+
     <script type="module" src="js/mapController.js"></script>
 
 </body>
