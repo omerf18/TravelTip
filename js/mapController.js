@@ -85,3 +85,10 @@ document.querySelector('.my-location').addEventListener("click", () => {
     mapService.getCurrLocation(gMap);
 });
 
+
+
+
+document.querySelector('.input-btn-save').addEventListener("click", () => {
+    
+});
+
