@@ -46,7 +46,15 @@
     flex-grow: 1;
 }
 
-S .clean-list {
+ .clean-list {
     padding: 0;
     list-style-type: none;
+}
+.hide{
+    display: none;
+}
+
+
+.show{
+    display: flex;
 }
