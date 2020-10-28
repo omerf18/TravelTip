@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/helpers.css">
     <title>TravelTip</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -11,25 +13,27 @@
 <body>
     <div class="main-container">
 
-        <header class="main-header flex">
+        <header class="main-header flex space-around">
             <h1>TRAVEL TIP</h1>
-            <input type="text" placeholder="Enter location">
-            <button class="go">GO</button>
-            <button class="my-location">MY LOCATION</button>
+            <section class="enter-location">
+                <input type="text" placeholder="Enter location">
+                <button class="go">GO</button>
+                <button class="my-location" onclick="onGetCurrLocation()">MY LOCATION</button>
+            </section>
         </header>
 
-        <section class="flex">
-            <div class="curr-location"></div>
+        <section class="curr-location flex space-around">
+            <div><span>curr-location:  </span></div>
             <button class="copy-location">COPY LOCATION</button>
         </section>
 
-        <content class="main-content flex">
+        <content class="main-content ">
             <section class="main-info">
                 <div class="weather"></div>
                 <div class="locations"></div>
             </section>
             <section class="map">
-                <div id="map" style="width: 100%; height: 400px;"></div>
+                <div id="map" style="width: 50%; height: 400px;"></div>
             </section>
         </content>
 

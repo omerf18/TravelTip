@@ -82,3 +82,6 @@ function _connectGoogleApi() {
     })
 }
 
+function onGetCurrLocation(){
+     mapService.getCurrLocation();
+}
