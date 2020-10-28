@@ -86,9 +86,13 @@ document.querySelector('.my-location').addEventListener("click", () => {
 });
 
 
-
+function getLocationName() {
+    document.querySelector('.input-name-container').style.display = 'block';
+    
+    }
 
 document.querySelector('.input-btn-save').addEventListener("click", () => {
-    
+   let name = document.querySelector('.input-name').value;
+   console.log(name);
 });
 
