@@ -26,7 +26,7 @@ function getLocs() {
 function createLocation(lat, lng, cb, name) {
     let location = {
         id: getLocationId(lat, lng),
-        name: getLocationName(name),
+        // name: getLocationName(name),
         lat,
         lng,
         // weather,
