@@ -26,10 +26,10 @@ window.onload = () => {
         })
 }
 
-document.querySelector('.btn').addEventListener('click', (ev) => {
-    console.log('Aha!', ev.target);
-    panTo(35.6895, 139.6917);
-})
+// document.querySelector('.btn').addEventListener('click', (ev) => {
+//     console.log('Aha!', ev.target);
+//     panTo(35.6895, 139.6917);
+// })
 
 export function initMap(lat = 32.0749831, lng = 34.9120554) {
     console.log('InitMap');
@@ -67,7 +67,6 @@ function getPosition() {
     })
 }
 
-
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
     const API_KEY = 'AIzaSyBH79yGoa3-jpEuZeBEJ2zELBNDMty2tR0'; //TODO: Enter your API Key
@@ -81,4 +80,8 @@ function _connectGoogleApi() {
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
 }
+
+document.querySelector('.my-location').addEventListener("click", () => {
+    mapService.getCurrLocation(gMap);
+});
 
