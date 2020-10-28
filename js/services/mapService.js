@@ -4,6 +4,8 @@ export const mapService = {
 }
 var locs = [{ lat: 11.22, lng: 22.11 }]
 
+let location = [];
+
 function getLocs() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -12,8 +14,22 @@ function getLocs() {
     });
 }
 
-function createLocation(loc) {
-    console.log('loc!', loc);
+
+// 4. Build the LocationService managing Locations:
+// {id, name, lat, lng, weather, createdAt, updatedAt}
+
+function createLocation(id, name, lat, lng, weather, createdAt, updatedAt) {
+    let location = {
+        // id,
+        // name,
+        lat,
+        lng,
+        // weather,
+        // createdAt,
+        // updatedAt
+    }
+    console.log(location);
+    gLocations.push(location);
 }
 
 function getSelectedLocation(map) {
@@ -33,10 +49,10 @@ function getSelectedLocation(map) {
         );
         infoWindow.open(map);
         createLocation(infoWindow.setContent)
-     
-      let myLatLng = {
+
+        let myLatLng = {
             lat: e.latLng.lat(),
-            lng: e.latLng.lng() 
+            lng: e.latLng.lng()
         }
         // var marker = 
         // new google.maps.Marker({ position: myLatLng, map: gMap });
@@ -44,30 +60,16 @@ function getSelectedLocation(map) {
         //  var name = prompt('Enter place name')
         //  if(!name)return
         //  addPlace(name,myLatLng);
-         map.setCenter(myLatLng)
+        //  map.setCenter(myLatLng);
+
+
+
+
         
+        createdLocation('...') //dennis
+        createdLocation('...') //omer
+
     });
 
 
 }
-
-
-
-
-
-
-// gMap.addListener('click', (e) => {
-//     myLatLng = {
-//         lat: e.latLng.lat(),
-//         lng: e.latLng.lng() 
-//     }
-//     var marker = new google.maps.Marker({ position: myLatLng, map: gMap });
-//      var name = prompt('Enter place name')
-//      if(!name)return
-//      addPlace(name,myLatLng);
-//      gMap.setCenter(myLatLng)
-// });
-
-
-// 4. Build the LocationService managing Locations:
-// {id, name, lat, lng, weather, createdAt, updatedAt}
