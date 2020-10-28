@@ -70,3 +70,7 @@ function getLocationId(lat, lng) {
     return Math.floor(Math.random() * Math.floor(100)) + '-' + Math.floor(lat) + Math.floor(lng);
 }
 
+function getLocationName() {
+document.querySelector('.input-name-container').style.display = 'block';
+
+}
