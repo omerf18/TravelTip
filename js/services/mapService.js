@@ -18,19 +18,37 @@ function getLocs() {
 // 4. Build the LocationService managing Locations:
 // {id, name, lat, lng, weather, createdAt, updatedAt}
 
-function createLocation(id, name, lat, lng, weather, createdAt, updatedAt) {
+
+function createLocation(lat, lng) {
     let location = {
-        // id,
-        // name,
+        id: getLocationId(lat, lng),
+        name: getLocationName(),
         lat,
-        lng,
-        // weather,
-        // createdAt,
-        // updatedAt
+        lng
     }
     console.log(location);
-    gLocations.push(location);
 }
+
+// title: 'Enter your IP address',
+//   input: 'text',
+//   inputLabel: 'Your IP address',
+//   inputValue: inputValue,
+//   showCancelButton: true,
+//   inputValidator
+
+// function createLocation(id, name, lat, lng, weather, createdAt, updatedAt) {
+//     let location = {
+// id,
+// name,
+// lat,
+// lng,
+// weather,
+// createdAt,
+// updatedAt
+//     }
+//     console.log(location);
+//     gLocations.push(location);
+// }
 
 function getSelectedLocation(map) {
     const myLatlng = { lat: 32.0749831, lng: 34.9120554 };
@@ -48,11 +66,10 @@ function getSelectedLocation(map) {
             JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
         );
         infoWindow.open(map);
-        createLocation(infoWindow.setContent)
 
         let myLatLng = {
-            lat: e.latLng.lat(),
-            lng: e.latLng.lng()
+            lat: mapsMouseEvent.latLng.lat(),
+            lng: mapsMouseEvent.latLng.lng()
         }
         // var marker = 
         // new google.maps.Marker({ position: myLatLng, map: gMap });
@@ -65,11 +82,16 @@ function getSelectedLocation(map) {
 
 
 
-        
-        createdLocation('...') //dennis
-        createdLocation('...') //omer
+
+        // createdLocation('...') //dennis
+        createLocation(myLatLng.lat, myLatLng.lng) //omer
 
     });
 
 
 }
+
+function getLocationId(lat, lng) {
+    return Math.floor(Math.random() * Math.floor(100)) + '-' + Math.floor(lat) + Math.floor(lng);
+}
+
