@@ -3,5 +3,17 @@
 }
 
 body {
+    background-color: #77e6dc;
     margin: 0;
+}
+.main-header{
+    background-color: rgb(233, 110, 110);
+}
+.google-map{
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.curr-location{
+    background-color: rgb(174, 238, 113);
+    width: 300px;
 }
