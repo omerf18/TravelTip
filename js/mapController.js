@@ -7,6 +7,7 @@ mapService.getLocs()
     .then(locs => console.log('locs', locs))
 
 window.onload = () => {
+  
     initMap()
         .then(() => {
             gMap.addListener("click", (event) => {
@@ -89,7 +90,7 @@ document.querySelector('.my-location').addEventListener("click", () => {
 
 document.querySelector('.input-btn-save').addEventListener("click", () => {
     let name = document.querySelector('.input-name').value;
-    getLocationName(name);
+    onGetLocationName(name);
     document.querySelector('.input-name-container').style.display = 'none';
     document.querySelector('.input-name').value = '';
 });

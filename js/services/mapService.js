@@ -2,10 +2,14 @@ export const mapService = {
     getLocs: getLocs,
     getSelectedLocation,
     getCurrLocation,
+    getLocationName,
+    
 }
 var locs = [{ lat: 11.22, lng: 22.11 }]
-
 let gLocations = [];
+
+
+
 
 function getLocs() {
     return new Promise((resolve, reject) => {
@@ -18,7 +22,7 @@ function getLocs() {
 function createLocation(name, lat, lng, weather, updatedAt) {
     let location = {
         id: getLocationId(lat, lng),
-        name,
+        name: getLocationName(name),
         lat,
         lng,
         // weather,
@@ -67,3 +71,7 @@ function getLocationId(lat, lng) {
     return Math.floor(Math.random() * Math.floor(100)) + '-' + Math.floor(lat) + Math.floor(lng);
 }
 
+function getLocationName(name){
+    var locationName  = name;
+    return locationName;
+}
