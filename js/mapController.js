@@ -9,13 +9,15 @@ mapService.getLocs()
 window.onload = () => {
     initMap()
         .then(() => {
-            mapService.getSelectedLocation(gMap);
+            gMap.addListener("click", (event) => {
+                mapService.getSelectedLocation(gMap,event);
+                document.querySelector('.input-name-container').style.display = 'flex';
+            });
         })
         .then(() => {
             addMarker({ lat: 32.0749831, lng: 34.9120554 });
         })
         .catch(console.log('INIT MAP ERROR'));
-
     getPosition()
         .then(pos => {
 
@@ -85,10 +87,10 @@ document.querySelector('.my-location').addEventListener("click", () => {
     mapService.getCurrLocation(gMap);
 });
 
-
-
-
 document.querySelector('.input-btn-save').addEventListener("click", () => {
-    
+    let name = document.querySelector('.input-name').value;
+    getLocationName(name);
+    document.querySelector('.input-name-container').style.display = 'none';
+    document.querySelector('.input-name').value = '';
 });
 
