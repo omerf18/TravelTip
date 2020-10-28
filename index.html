@@ -22,29 +22,28 @@
             </section>
         </header>
 
-        <section class="curr-location flex ">
-            <div><span>curr-location: </span></div>
-            <button class="copy-location">COPY LOCATION</button>
+        <section class="curr-location flex justify-flex-end ">
+            <div><span>curr-location: </span><button class="copy-location">COPY LOCATION</button></div>
+           
         </section>
 
-        <content class="main-content ">
-            <section class="main-info">
-                <div class="weather"></div>
+        <content class="main-content flex ">
+            <section class="main-info flex column justify-center align-center">
+                <div class="weather flex justify-center align-center"></div>
                 <div class="locations"></div>
             </section>
-            <section class="map flex justify-flex-end">
-                <div class="google-map" id="map" style="width: 50%; height: 400px;"></div>
-            </section>
+            <div class="google-map flex justify-flex-end" id="map" style="width: 50%; height: 400px;"></div>
+         
         </content>
 
     </div>
 
 
 
-    <div class="input-name-container">
+    <div class="input-name-container flex column justify-center align-center">
         <h2 class="input-title">Enter location name</h2>
         <input type="text" class="input-name" placeholder="Enter name:">
-        <div class="btn-container flex">
+        <div class="input-btn-container flex">
             <button class="input-btn-save">Save!</button>
             <button class="input-btn-cancel">Cancel</button>
         </div>

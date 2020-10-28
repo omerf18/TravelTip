@@ -5,6 +5,8 @@
 body {
     background-color: #77e6dc;
     margin: 0;
+    max-height: 100vh;
+    padding: 0 20px;
 }
 .main-header{
     background-color: rgb(233, 110, 110);
@@ -15,5 +17,52 @@ body {
 }
 .curr-location{
     background-color: rgb(174, 238, 113);
-    width: 300px;
+ text-align: center;
+    
+}
+.main-info{
+    flex-grow: 1;
+    background-color: rgb(223, 177, 177);
+}
+.main-info .weather{
+    background-color: #fff;
+    height: 40%;
+    width: 90%;
+    margin-bottom: 10px;
+    
+}
+.locations{
+    height: 40%;
+    background-color: rgb(58, 71, 141);
+    width: 90%;
+}
+
+
+
+
+/* modal-input */
+.input-name-container{
+    height: 100vh;
+    justify-content: center;
+   
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+ 
+}
+.input-name{
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+.input-btn-container >*{
+    margin: 16px;
+    width: 6rem;
+    height: 3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1rem;
 }
