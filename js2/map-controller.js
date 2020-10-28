@@ -1,4 +1,4 @@
-import { mapService } from './services/mapService.js'
+import { mapService } from './services/map-service.js'
 
 var gMap;
 console.log('Main!');
@@ -25,6 +25,7 @@ window.onload = () => {
 }
 
 document.querySelector('.btn').addEventListener('click', (ev) => {
+    mapService.maps()
     console.log('Aha!', ev.target);
     panTo(35.6895, 139.6917);
 })
@@ -53,10 +54,10 @@ function addMarker(loc) {
     return marker;
 }
 
-// function panTo(lat, lng) {
-//     var laLatLng = new google.maps.LatLng(lat, lng);
-//     gMap.panTo(laLatLng);
-// }
+function panTo(lat, lng) {
+    var laLatLng = new google.maps.LatLng(lat, lng);
+    gMap.panTo(laLatLng);
+}
 
 function getPosition() {
     console.log('Getting Pos');
