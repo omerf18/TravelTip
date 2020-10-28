@@ -15,20 +15,20 @@ function getLocs() {
     });
 }
 
-function createLocation(lat, lng, weather, updatedAt) {
+function createLocation(name, lat, lng, weather, updatedAt) {
     let location = {
         id: getLocationId(lat, lng),
-        name: getLocationName(),
+        name,
         lat,
         lng,
-        weather,
+        // weather,
         createdAt: new Date().toUTCString()
     }
     console.log(location);
     gLocations.push(location);
 }
 
-function getSelectedLocation(map) {
+function getSelectedLocation(map,ev) {
     const myLatlng = { lat: 32.0749831, lng: 34.9120554 };
     let infoWindow = new google.maps.InfoWindow({
         content: "Click the map to get Lat/Lng!",
@@ -36,24 +36,21 @@ function getSelectedLocation(map) {
 
     });
     infoWindow.open(map);
-    map.addListener("click", (mapsMouseEvent) => {
-        infoWindow.close();
-        infoWindow = new google.maps.InfoWindow({
-            position: mapsMouseEvent.latLng,
+    infoWindow.close();
+    infoWindow = new google.maps.InfoWindow({
+        position: ev.latLng,
 
-        });
-        infoWindow.setContent(
-            JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
-        );
-        infoWindow.open(map);
-        let myLatLng = {
-            lat: mapsMouseEvent.latLng.lat(),
-            lng: mapsMouseEvent.latLng.lng()
-        }
-        new google.maps.Marker({ position: myLatLng, map });
-        createLocation(myLatLng.lat, myLatLng.lng)
     });
-
+    infoWindow.setContent(
+        JSON.stringify(ev.latLng.toJSON(), null, 2)
+    );
+    infoWindow.open(map);
+    let myLatLng = {
+        lat: ev.latLng.lat(),
+        lng: ev.latLng.lng()
+    }
+    new google.maps.Marker({ position: myLatLng, map });
+    createLocation(myLatLng.lat, myLatLng.lng)
 }
 function getCurrLocation(map) {
     navigator.geolocation.getCurrentPosition((position) => {
